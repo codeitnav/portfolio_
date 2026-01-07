@@ -13,10 +13,12 @@ const About = () => {
       <div
         className="
           max-w-7xl mx-auto 
-          px-6 sm:px-12 lg:px-20
+          px-8 sm:px-12 lg:px-20
           flex flex-col justify-center
           min-h-screen
-          py-12 md:py-0
+          pt-12
+          pb-10
+          md:py-0
         "
       >
         <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 md:mb-12 text-center">
@@ -28,9 +30,12 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* IMAGE */}
-          <div className="flex justify-center order-2 md:order-1">
-            <Frame imageSrc="/hero.png" />
+          <div className="flex justify-center order-2 md:order-1 w-full">
+            <div className="w-[75%] sm:w-[70%] md:w-full">
+              <Frame imageSrc="/hero.png" />
+            </div>
           </div>
+
 
           {/* TEXT */}
           <div className="space-y-6 text-lg md:text-xl font-sans text-foreground/90 leading-relaxed order-1 md:order-2">

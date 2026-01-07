@@ -123,10 +123,13 @@ const Projects = () => {
       <div
         className="
           max-w-7xl mx-auto 
-          px-4 sm:px-6 lg:px-8 
+          px-8 sm:px-6 lg:px-8 
           flex flex-col 
           min-h-screen
           py-0
+          pt-24
+          pb-10
+          md:py-0
         "
       >
         {/* heading */}

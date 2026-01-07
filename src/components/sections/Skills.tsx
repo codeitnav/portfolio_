@@ -34,9 +34,12 @@ export default function SkillsSection() {
       <div
         className="
           max-w-7xl mx-auto
-          px-4 sm:px-6 lg:px-8
+          px-8 sm:px-6 lg:px-8
           flex flex-col justify-center
           min-h-screen
+          pt-24
+          pb-10
+          md:py-0
         "
       >
         {/* heading */}

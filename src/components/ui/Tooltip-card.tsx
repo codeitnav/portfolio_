@@ -21,9 +21,18 @@ export const Tooltip = ({
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [height, setHeight] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   const triggerRef = useRef<HTMLSpanElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  // Detect touch devices (mobile / tablet)
+  useEffect(() => {
+    setIsTouchDevice(
+      typeof window !== "undefined" &&
+        window.matchMedia("(pointer: coarse)").matches
+    );
+  }, []);
 
   // Ensure portal only renders on client
   useEffect(() => {
@@ -86,23 +95,30 @@ export const Tooltip = ({
 
   return (
     <>
-      {/* INLINE TRIGGER (SAFE INSIDE <p>) */}
+      {/* INLINE TRIGGER */}
       <span
         ref={triggerRef}
         className={cn("relative inline-block", containerClassName)}
         onMouseEnter={(e) => {
-          if (!content) return;
+          if (!content || isTouchDevice) return;
           setIsVisible(true);
           updatePosition(e);
         }}
-        onMouseMove={updatePosition}
-        onMouseLeave={() => setIsVisible(false)}
+        onMouseMove={(e) => {
+          if (isTouchDevice) return;
+          updatePosition(e);
+        }}
+        onMouseLeave={() => {
+          if (isTouchDevice) return;
+          setIsVisible(false);
+        }}
       >
         {children}
       </span>
 
-      {/* PORTAL TOOLTIP */}
+      {/* PORTAL TOOLTIP (DESKTOP ONLY) */}
       {mounted &&
+        !isTouchDevice &&
         createPortal(
           <AnimatePresence>
             {isVisible && content && (
@@ -122,7 +138,7 @@ export const Tooltip = ({
                   left: position.x,
                 }}
               >
-                {/* Height measurer (not visible) */}
+                {/* Height measurer */}
                 <div
                   ref={contentRef}
                   className="absolute invisible p-2 text-sm md:p-4"
