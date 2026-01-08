@@ -47,10 +47,12 @@ const Contact = () => {
     <section id="contact" className="w-full bg-background text-foreground">
       <div
         className="
+
           max-w-7xl mx-auto 
           px-8 sm:px-6 lg:px-8
           flex flex-col justify-center
           pb-24
+          pt-12
         "
       >
         <h2 className="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">

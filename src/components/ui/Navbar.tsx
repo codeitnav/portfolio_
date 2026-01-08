@@ -10,7 +10,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  // Track theme changes
   useEffect(() => {
     const current = document.documentElement.getAttribute("data-theme") as
       | "light"
@@ -34,7 +33,6 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Navbar shrink on scroll
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -50,7 +48,6 @@ export default function Navbar() {
   className={`
     fixed top-0 left-0 w-full z-50
     transition-all duration-300
-    shadow-sm
     ${
       scrolled
         ? "h-14 md:h-16 bg-background/90 backdrop-blur-xl"
@@ -62,26 +59,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-full">
 
         {/* Logo */}
-        <div className="flex items-center">
+        <Link href="#hero" className="flex items-center">
           <Image
             src={logoSrc}
             alt="Logo"
             width={50}
             height={50}
-            className="md:w-[40px] md:h-[40px] w-[30px] h-[30px] object-contain py-2"
+            className="md:w-[40px] md:h-[40px] w-[30px] h-[30px] object-contain py-2 cursor-pointer"
             priority
           />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-10 text-foreground font-semibold">
-          <Link href="#home" className="hover:opacity-70 transition">Home</Link>
           <Link href="#about" className="hover:opacity-70 transition">About</Link>
           <Link href="#skills" className="hover:opacity-70 transition">Skills</Link>
           <Link href="#projects" className="hover:opacity-70 transition">Projects</Link>
+          <Link href="#experience" className="hover:opacity-70 transition">Experience</Link>
           <Link href="#contact" className="hover:opacity-70 transition">Contact</Link>
 
-          {/* External Blog */}
           <a
             href="https://hashnode.com/@navya01"
             target="_blank"
@@ -90,7 +86,7 @@ export default function Navbar() {
           >
             Blogs
           </a>
-
+          
           <ThemeToggle />
         </div>
 

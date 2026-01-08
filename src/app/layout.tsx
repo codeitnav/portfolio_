@@ -1,5 +1,5 @@
 import './globals.css'
-import { Manrope, Poppins } from 'next/font/google'
+import { Manrope, Poppins } from 'next/font/google';
 
 // Body font
 const manrope = Manrope({

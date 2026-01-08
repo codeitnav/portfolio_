@@ -129,7 +129,6 @@ const Projects = () => {
           py-0
           pt-24
           pb-10
-          md:py-0
         "
       >
         {/* heading */}
