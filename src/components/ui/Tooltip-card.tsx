@@ -26,7 +26,6 @@ export const Tooltip = ({
   const triggerRef = useRef<HTMLSpanElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Detect touch devices (mobile / tablet)
   useEffect(() => {
     setIsTouchDevice(
       typeof window !== "undefined" &&
@@ -34,12 +33,10 @@ export const Tooltip = ({
     );
   }, []);
 
-  // Ensure portal only renders on client
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Measure height ONLY after tooltip is visible
   useEffect(() => {
     if (!isVisible) return;
 
@@ -50,7 +47,6 @@ export const Tooltip = ({
     });
   }, [isVisible, content]);
 
-  // Typing animation
   useEffect(() => {
     if (!isVisible || !content) {
       setTypedText("");
@@ -95,7 +91,6 @@ export const Tooltip = ({
 
   return (
     <>
-      {/* INLINE TRIGGER */}
       <span
         ref={triggerRef}
         className={cn("relative inline-block", containerClassName)}
@@ -116,7 +111,6 @@ export const Tooltip = ({
         {children}
       </span>
 
-      {/* PORTAL TOOLTIP (DESKTOP ONLY) */}
       {mounted &&
         !isTouchDevice &&
         createPortal(
@@ -138,7 +132,6 @@ export const Tooltip = ({
                   left: position.x,
                 }}
               >
-                {/* Height measurer */}
                 <div
                   ref={contentRef}
                   className="absolute invisible p-2 text-sm md:p-4"
@@ -146,7 +139,6 @@ export const Tooltip = ({
                   {content}
                 </div>
 
-                {/* Visible content */}
                 <div className="p-2 text-sm text-black md:p-4">
                   {typedText}
                 </div>

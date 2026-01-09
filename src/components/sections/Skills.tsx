@@ -14,7 +14,6 @@ export default function SkillsSection() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const skills = techStack as Skill[];
 
-  // desktop inverted triangle pattern
   const pattern = [6, 5, 4, 3, 4, 5];
   const rows: Skill[][] = [];
 
@@ -50,7 +49,6 @@ export default function SkillsSection() {
           </div>
         </h2>
 
-        {/* ---------------- MOBILE LAYOUT ---------------- */}
         <div className="md:hidden">
           <div className="grid grid-cols-3 gap-x-6 gap-y-10 place-items-center">
             {skills.map((skill) => (
@@ -59,7 +57,6 @@ export default function SkillsSection() {
           </div>
         </div>
 
-        {/* ---------------- DESKTOP LAYOUT ---------------- */}
         <div className="hidden md:flex flex-col gap-16">
           {rows.map((row, rowIndex) => (
             <div
@@ -83,7 +80,6 @@ function SkillIcon({ skill }: { skill: Skill }) {
   return (
     <div className="group flex flex-col items-center">
       <div className="relative overflow-hidden">
-        {/* glow */}
         <div
           className="
             absolute inset-0 rounded-full blur-xl md:blur-2xl
@@ -93,7 +89,6 @@ function SkillIcon({ skill }: { skill: Skill }) {
           "
         />
 
-        {/* icon container */}
         <div
           className="
             relative z-10
@@ -122,7 +117,6 @@ function SkillIcon({ skill }: { skill: Skill }) {
         </div>
       </div>
 
-      {/* label */}
       <span
         className="
           mt-3 text-xs md:text-sm font-medium

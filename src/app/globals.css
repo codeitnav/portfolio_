@@ -6,7 +6,7 @@
   --foreground: #2A1E1A;
 }
 
-/* Tailwind Theme Integration */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -51,10 +51,10 @@ h2,
 
 /* Light Mode */
 [data-theme="light"] {
-  --foreground: #2A1E1A; /* dark → cursor black */
+  --foreground: #2A1E1A; 
 }
 
 /* Dark Mode */
 [data-theme="dark"] {
-  --foreground: #ededed; /* light → cursor white */
+  --foreground: #ededed; 
 }

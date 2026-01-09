@@ -10,7 +10,6 @@ import Button from "@/components/ui/Button";
 import { Tooltip } from "../ui/Tooltip-card";
 import { projects } from "@/data/projects";
 
-// Mapping project titles to their tooltip content
 const projectTooltips: Record<string, string> = {
   "DevStudio": "Probably the most technically challenging thing I’ve built so far.",
   "SAM": "Where my interest in AI and real-world systems came together.",
@@ -26,10 +25,8 @@ const Projects = () => {
   const [activeCard, setActiveCard] = useState(0);
 
   const content = projects.map((project) => {
-    // Determine tooltip text based on project title lookup
     const tooltipText = projectTooltips[project.title];
 
-    // Define the base description content structure
     const baseDescriptionContent = (
       <div className="flex flex-col gap-4">
         <span className="text-lg text-foreground/90 leading-relaxed">
@@ -170,7 +167,6 @@ const Projects = () => {
                       <h3 className="text-3xl font-heading font-semibold mb-6">
                         {item.title}
                       </h3>
-                      {/* The description JSX now contains the Tooltip wrap */}
                       {item.description}
                     </motion.div>
                   </div>
