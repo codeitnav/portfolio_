@@ -81,8 +81,7 @@ const Experience = () => {
               Duration: September 2024 - November 2024
             </h3>
             <p className="text-foreground/80 text-xs sm:text-sm md:text-base mt-2 leading-relaxed">
-              Gained hands-on experience in full-stack development using the MERN stack. Improved data flow efficiency
-              and optimized performance while contributing to real-world web application projects.
+              Worked on end-to-end web development for Xcentic.com by implementing a high-performance Next.js frontend with SSR and optimizing backend APIs using Node.js, Express, and PostgreSQL to significantly enhance speed and reduce latency.
             </p>
           </div>
         </div>
