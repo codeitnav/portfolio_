@@ -1,11 +1,40 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export default function WaveLine() {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const getTheme = () =>
+      (document.documentElement.getAttribute("data-theme") as
+        | "light"
+        | "dark") ?? "light";
+
+    setTheme(getTheme());
+
+    const observer = new MutationObserver(() => {
+      setTheme(getTheme());
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="relative w-full h-6">
       <svg
         width="100%"
         height="11"
         fill="none"
-        className="stroke-foreground/20"
+        className={
+          theme === "light"
+            ? "stroke-foreground/40"
+            : "stroke-foreground/20"
+        }
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -19,8 +48,7 @@ export default function WaveLine() {
             d="M114 4c-5.067 4.667-10.133 4.667-15.2 0S88.667-.667 83.6 4 73.467 8.667 68.4 4 58.267-.667 53.2 4 43.067 8.667 38 4 27.867-.667 22.8 4 12.667 8.667 7.6 4-2.533-.667-7.6 4s-10.133 4.667-15.2 0S-32.933-.667-38 4s-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0"
             strokeLinecap="square"
             transform="translate(0,1.5)"
-          ></path>
-
+          />
           <animate
             attributeName="x"
             from="0"
@@ -28,7 +56,7 @@ export default function WaveLine() {
             dur="4s"
             repeatCount="indefinite"
             begin="0s"
-          ></animate>
+          />
         </pattern>
 
         <rect
@@ -36,7 +64,7 @@ export default function WaveLine() {
           height="100%"
           fill="url(#wave_pattern)"
           stroke="none"
-        ></rect>
+        />
       </svg>
     </div>
   );

@@ -1,5 +1,6 @@
 import './globals.css'
 import { Manrope, Poppins } from 'next/font/google';
+import Cursor from "@/components/ui/Cursor"
 
 // Body font
 const manrope = Manrope({
@@ -26,7 +27,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${manrope.variable} ${headingFont.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Cursor />
+        {children}
+      </body>
     </html>
   )
 }

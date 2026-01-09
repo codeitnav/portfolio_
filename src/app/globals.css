@@ -42,3 +42,19 @@ h2,
 .display {
   font-family: var(--font-poppins), sans-serif;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none;
+  }
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  --foreground: #2A1E1A; /* dark → cursor black */
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --foreground: #ededed; /* light → cursor white */
+}
