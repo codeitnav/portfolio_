@@ -47,6 +47,10 @@ export default function Hamburger() {
             Projects
           </Link>
 
+          <Link href="#experience" onClick={() => setOpen(false)} className="hover:opacity-70">
+            Experience
+          </Link>
+
           <Link href="#contact" onClick={() => setOpen(false)} className="hover:opacity-70">
             Contact
           </Link>
