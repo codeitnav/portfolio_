@@ -19,7 +19,7 @@ export default function Hamburger() {
         <span className="w-5 h-[2px] bg-foreground transition-all"></span>
       </button>
 
-      {/* Dropdown menu (floating rectangle) */}
+      {/* Dropdown menu */}
       {open && (
         <div
           className="
@@ -31,25 +31,35 @@ export default function Hamburger() {
             animate-fadeIn
           "
         >
-
           <Link href="#home" onClick={() => setOpen(false)} className="hover:opacity-70">
             Home
           </Link>
+
           <Link href="#about" onClick={() => setOpen(false)} className="hover:opacity-70">
             About
           </Link>
+
           <Link href="#skills" onClick={() => setOpen(false)} className="hover:opacity-70">
             Skills
           </Link>
+
           <Link href="#projects" onClick={() => setOpen(false)} className="hover:opacity-70">
             Projects
           </Link>
+
           <Link href="#contact" onClick={() => setOpen(false)} className="hover:opacity-70">
             Contact
           </Link>
-          <Link href="#blogs" onClick={() => setOpen(false)} className="hover:opacity-70">
+
+          <a
+            href="https://hashnode.com/@navya01"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="hover:opacity-70"
+          >
             Blogs
-          </Link>
+          </a>
         </div>
       )}
     </>

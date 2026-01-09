@@ -76,7 +76,7 @@ export function FocusCards({ cards }: { cards: CardType[] }) {
         sm:grid-cols-2
         lg:grid-cols-2
         gap-8
-        md:gap-40
+        md:gap-20
         w-full
         max-w-5xl
         mx-auto
