@@ -11,6 +11,7 @@ import { Tooltip } from "../ui/Tooltip-card";
 import { projects } from "@/data/projects";
 
 const projectTooltips: Record<string, string> = {
+  "BuildSafe AI": "Me trying to fix the chaos that usually starts in the requirements phase.",
   "DevStudio": "Probably the most technically challenging thing I’ve built so far.",
   "SAM": "Where my interest in AI and real-world systems came together.",
   "Expenze": "Started as a side project, turned into something I actually use.",

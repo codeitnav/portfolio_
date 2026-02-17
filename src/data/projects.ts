@@ -1,4 +1,26 @@
 export const projects = [
+   {
+    title: "BuildSafe AI",
+    description:
+      "BuildSafe AI is an intelligent web-based system that detects ambiguity, missing constraints, non-testable statements, unrealistic expectations, and hidden dependencies in software requirement documents before development begins. It combines deterministic document parsing (PDF/DOC/DOCX), rule-based software engineering validation, and LLM-powered semantic analysis to generate per-requirement and project-level risk scores. The system provides clear human-readable explanations, AI-generated improved rewrites, persistent MongoDB-backed analysis history, and downloadable PDF reports — helping teams reduce software failure early in the lifecycle.",
+    image: "/projects/buildsafe-ai.png",
+    github: "https://github.com/codeitnav/BuildSafe-AI",
+    live: "https://build-safe-ai.vercel.app/",
+    techStack: [
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "Axios",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "LLM-based Semantic Analysis",
+      "Rule-based Validation Engine",
+      "Hybrid Risk Scoring Model",
+      "PDF Report Generation",
+    ],
+  },
   {
     title: "DevStudio",
     description:
